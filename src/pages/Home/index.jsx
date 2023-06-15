@@ -1,10 +1,13 @@
 import React from 'react'
+import Layout from '../../Components/Layout'
+import Card from '../../Components/Card'
 
 function Home() {
   return (
-    <div className='bg-red-50'>
-        Home
-    </div>
+    <Layout>
+      Home
+      <Card></Card>
+    </Layout>
   )
 }
 

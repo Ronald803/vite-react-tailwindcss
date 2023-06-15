@@ -1,23 +1,34 @@
+import {useRoutes,BrowserRouter} from 'react-router-dom'
 import Home from '../Home'
 import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import Signin from '../Signin'
-import { useState } from 'react'
-//import './App.css'
+import Navbar from '../../Components/Navbar'
+import './App.css'
+
+const AppRoutes = () => {
+  let routes = useRoutes([
+    { path: '/', element: <Home/>},
+    { path: '/my-orders', element: <MyOrders/>},
+    { path: '/my-account', element: <MyAccount/>},
+    { path: '/my-order', element: <MyOrder/>},
+    { path: '/sign-in', element: <Signin/>},
+    { path: '/*', element: <NotFound/>}
+
+  ])
+  return routes
+}
 
 function App() {
-  return (
-    <div className='bg-red-100'>
-      Hola Tarolas!!!!!
-      <Home></Home>
-      <MyAccount></MyAccount>
-      <MyOrder></MyOrder>
-      <MyOrders></MyOrders>
-      <NotFound></NotFound>
-      <Signin></Signin>
-    </div>
+  return ( 
+    <BrowserRouter>
+      
+      <Navbar/>
+      <AppRoutes/>
+      
+    </BrowserRouter>
   )
 }
 
